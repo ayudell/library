@@ -1,0 +1,11 @@
+function [q] = orfFlowFun(A,rho,dp)
+% v3: Accounts for eccentricity
+
+% A:	[m^2] Flowpath Area
+% rho:	[kg/m^3]	Working fluid mass density
+% dp:	[Pa] Pressure differential across leakage path
+% q:	[m^3/s] Volumetric flow rate
+
+Cd = 0.62;
+
+q = Cd*A*sqrt(2*abs(dp)/rho)*sign(dp);
